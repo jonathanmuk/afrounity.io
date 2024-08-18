@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afro-Unity Sports Foundation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 50px 0;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+        .hero-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            padding: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-video-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 30px;
+            }
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 1000;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+        
+        
+        
+        /* Improve card hover effect */
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        
+        /* Add some depth to sections */
+        section {
+            position: relative;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            pointer-events: none;
+        }
+        
+        /* Enhance footer */
+        footer {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        
+        /* Improve form styling */
+        form input,
+        form textarea {
+            border: none;
+            border-bottom: 2px solid #007bff;
+            border-radius: 0;
+            padding: 10px 0;
+            transition: border-color 0.3s;
+        }
+        
+        form input:focus,
+        form textarea:focus {
+            outline: none;
+            border-color: #0056b3;
+        }
+        .goals-carousel {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .goals-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .goals-slide.active {
+            opacity: 1;
+        }
+        
+        .goal-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .goal-circle h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .goal-circle p {
+            font-size: 1rem;
+        }
+        
+        .goals-nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .goals-nav button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .goals-nav button:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Programs Section */
+        .program-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-icon {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        
+        #goals-and-stories {
+            background-color: #f8f9fa;
+        }
+        .success-stories-carousel {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        .story-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .story-card.active {
+            opacity: 1;
+        }
+        
+        .story-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .stories-nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .stories-nav button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .stories-nav button:hover {
+            background-color: #0056b3;
+        }
+        
+        .story-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .story-info h5 {
+            margin: 0;
+        }
+        
+        .story-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .story-content {
+            margin-bottom: 15px;
+        }
+        
+        .story-footer {
+            display: flex;
+            justify-content: space-between;
+            color: #6c757d;
+        }
+        
+        .story-footer span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .story-footer i {
+            margin-right: 5px;
+        }
+        .custom-navbar {
+            background-color: #e0e0e0 !important;
+            margin-bottom: 10px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="logo2.png" alt="Afro-Unity Sports Foundation" height="80" width="100">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="programs.html">Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="volunteer.html">Get Involved</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="donate.html">Donate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-card">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 hero-content">
+                            <h1 data-aos="fade-up">Empowering Communities Through Sports</h1>
+                            <p data-aos="fade-up" data-aos-delay="200">Afro-Unity Sports Foundation: Uniting Uganda through inclusive sports programs</p>
+                            <a href="#about" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="400">Learn More</a>
+                        </div>
+                        <div class="col-md-6 hero-video-container">
+                            <div class="video-wrapper">
+                                <video autoplay loop muted playsinline class="hero-video">
+                                    <source src="hero-video.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5" data-aos="fade-up">About Us</h2>
+                <div class="row">
+                    <div class="col-md-6" data-aos="fade-right">
+                        <h3>Our Mission</h3>
+                        <p>Afro-Unity Sports Foundation empowers communities across Uganda through inclusive sports programs that promote unity, health, gender equality, and youth development. We are dedicated to using sports as a catalyst for positive change, ensuring that every individual, regardless of gender, has the opportunity to thrive and contribute to the community.</p>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-left">
+                        <h3>Our Vision</h3>
+                        <p>A united and equitable Uganda where sports serve as a powerful tool for social change, fostering gender balance, youth empowerment, and community resilience. We strive to lead the way in creating inclusive environments where everyone especiall the youth, can realize their full potential</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="goals-and-stories" class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                <h2 class="text-center mb-4" data-aos="fade-up">Our Goals</h2>
+                <div class="goals-carousel" data-aos="fade-up">
+                    <div class="goals-slide active">
+                        <div class="goal-circle">
+                            <h3>Expand Access to Inclusive Sports</h3>
+                            <p>Increase participation in sports activities across Uganda, with a focus on mixed-gender sports like Baseball5.</p>
+                        </div>
+                    </div>
+                    <div class="goals-slide">
+                        <div class="goal-circle">
+                            <h3>Promote Health and Wellness</h3>
+                            <p>Collaborate with partners to integrate health awareness into our sports programs to improve community health outcomes.</p>
+                        </div>
+                    </div>
+                    <div class="goals-slide">
+                        <div class="goal-circle">
+                            <h3>Foster Youth Development and Gender Equality</h3>
+                            <p>Provide opportunities for young people of all genders to develop life skills, leadership qualities, and educational achievements.</p>
+                        </div>
+                    </div>
+                    <div class="goals-slide">
+                        <div class="goal-circle">
+                            <h3>Build Strong, Gender-Inclusive Communities</h3>
+                            <p>Use sports as a tool to foster unity, social cohesion, and resilience, ensuring equal contributions from all genders.</p>
+                        </div>
+                    </div>
+                    <div class="goals-slide">
+                        <div class="goal-circle">
+                            <h3>Sustainability and Growth</h3>
+                            <p>Secure partnerships, sponsorships, and donations to ensure long-term sustainability and expansion of our programs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="goals-nav">
+                    <button class="prev-goal">&lt;</button>
+                    <button class="next-goal">&gt;</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-center mb-4" data-aos="fade-up">Success Stories</h2>
+                <div class="success-stories-carousel" data-aos="fade-up">
+                    <!-- Add your success story cards here -->
+                    <div class="story-card">
+                        <div class="story-header">
+                            <img src="path/to/profile-image.jpg" alt="John Doe" class="story-avatar">
+                            <div class="story-info">
+                                <h5>John Doe</h5>
+                                <p>Baseball5 Player</p>
+                            </div>
+                        </div>
+                        <p class="story-content">Thanks to Afro-Unity Sports Foundation, I discovered my passion for Baseball5 and learned valuable teamwork skills.</p>
+                        <div class="story-footer">
+                            <span><i class="far fa-heart"></i> 245</span>
+                            <span><i class="far fa-comment"></i> 18</span>
+                            <span><i class="fas fa-retweet"></i> 32</span>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-header">
+                            <img src="path/to/profile-image.jpg" alt="John Doe" class="story-avatar">
+                            <div class="story-info">
+                                <h5>John Doe</h5>
+                                <p>Baseball5 Player</p>
+                            </div>
+                        </div>
+                        <p class="story-content">Thanks to Afro-Unity Sports Foundation, I discovered my passion for Baseball5 and learned valuable teamwork skills.</p>
+                        <div class="story-footer">
+                            <span><i class="far fa-heart"></i> 245</span>
+                            <span><i class="far fa-comment"></i> 18</span>
+                            <span><i class="fas fa-retweet"></i> 32</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Add more story cards as needed -->
+                </div>
+                <div class="stories-nav">
+                    <button class="prev-story">&lt;</button>
+                    <button class="next-story">&gt;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="programs" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5" data-aos="fade-up">Our Programs</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4" data-aos="fade-up">
+                        <div class="program-card">
+                            <div class="program-icon">
+                                <i class="fas fa-baseball-ball"></i>
+                            </div>
+                                <h5>Baseball5 Initiative</h5>
+                                <p>Promoting gender equality through this dynamic, fast-paced urban sport.</p>
+                                <a href="programs.html#baseball5" class="btn btn-outline-primary">Learn More</a>
+                            </div>
+                        </div>
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="program-card">
+                            <div class="program-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                                <h5>Charity and Hospital Hygiene</h5>
+                                <p>Improving community health through cleanliness initiatives and hygiene education in healthcare facilities and public spaces.</p>
+                                <a href="programs.html#charity-hygiene" class="btn btn-outline-primary">Learn More</a>
+                            </div>
+                        </div>
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="program-card">
+                            <div class="program-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                                <h5>Health and Wellness Initiative</h5>
+                                <p>Integrating health education into sports programs for community well-being.</p>
+                                <a href="programs.html#health-wellness" class="btn btn-outline-primary">Learn More</a>
+                            </div>
+                        </div>
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="program-card">
+                            <div class="program-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                                <h5>Community Sports Development</h5>
+                                <p>Building the infrastructure and capacity needed to sustain sports' activities at the grassroots level</p>
+                                <a href="programs.html#community-sports" class="btn btn-outline-primary">Learn More</a>
+                            </div>
+                        </div>
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="program-card">
+                            <div class="program-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                                <h5>Gender Equality In Sports</h5>
+                                <p>Ensuring that gender equality is at the fore-front of our efforts and breaking down barriers to female participation in sports</p>
+                                <a href="programs.html#gender-equality" class="btn btn-outline-primary">Learn More</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="get-involved" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5" data-aos="fade-up">Get Involved</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4" data-aos="fade-up">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-hands-helping fa-3x mb-3"></i>
+                                <h5 class="card-title">Volunteer</h5>
+                                <p class="card-text">Join our team and make a difference in your community.</p>
+                                <a href="volunteer.html" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-donate fa-3x mb-3"></i>
+                                <h5 class="card-title">Donate</h5>
+                                <p class="card-text">Support our programs with a one-time or recurring donation.</p>
+                                <a href="donate.html" class="btn btn-primary">Donate Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-handshake fa-3x mb-3"></i>
+                                <h5 class="card-title">Partner With Us</h5>
+                                <p class="card-text">Collaborate with us to create lasting impact in Uganda.</p>
+                                <a href="#" class="btn btn-primary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5" data-aos="fade-up">Latest News & Events</h2>
+                <div class="row">
+                    <!-- Add news and events items here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5" data-aos="fade-up">Contact Us</h2>
+                <div class="row">
+                    <div class="col-md-6" data-aos="fade-right">
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                    <div class="col-md-6" data-aos="fade-left">
+                        <h4>Our Location</h4>
+                        <p>PO Box: 129281, Kololo II, Kampala, Uganda</p>
+                        <p>Phone: +256 770 943848</p>
+                        <p>Email: info@afro-unitysf.org</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="volunteer.html">Get Involved</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2023 Afro-Unity Sports Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS (Animate on Scroll)
+            AOS.init({
+                duration: 1000,
+                once: true,
+            });
+        
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        
+            // Add active class to navigation links on scroll
+            window.addEventListener('scroll', () => {
+                let scrollPosition = window.scrollY;
+                document.querySelectorAll('section').forEach(section => {
+                    if (scrollPosition >= section.offsetTop - 100 && scrollPosition < section.offsetTop + section.offsetHeight - 100) {
+                        const currentId = section.attributes.id.value;
+                        document.querySelector(`.navbar-nav a[href="#${currentId}"]`).classList.add('active');
+                    } else {
+                        const currentId = section.attributes.id.value;
+                        document.querySelector(`.navbar-nav a[href="#${currentId}"]`).classList.remove('active');
+                    }
+                });
+            });
+        
+            // Goals carousel
+            const goalSlides = document.querySelectorAll('.goals-slide');
+            const prevGoalBtn = document.querySelector('.prev-goal');
+            const nextGoalBtn = document.querySelector('.next-goal');
+            let currentGoalIndex = 0;
+        
+            function showGoalSlide(index) {
+                goalSlides.forEach(slide => slide.classList.remove('active'));
+                goalSlides[index].classList.add('active');
+            }
+        
+            prevGoalBtn.addEventListener('click', () => {
+                currentGoalIndex = (currentGoalIndex - 1 + goalSlides.length) % goalSlides.length;
+                showGoalSlide(currentGoalIndex);
+            });
+        
+            nextGoalBtn.addEventListener('click', () => {
+                currentGoalIndex = (currentGoalIndex + 1) % goalSlides.length;
+                showGoalSlide(currentGoalIndex);
+            });
+        
+            // Success stories carousel
+            const storyCards = document.querySelectorAll('.story-card');
+            const prevStoryBtn = document.querySelector('.prev-story');
+            const nextStoryBtn = document.querySelector('.next-story');
+            let currentStoryIndex = 0;
+        
+            function showStoryCard(index) {
+                storyCards.forEach(card => card.classList.remove('active'));
+                storyCards[index].classList.add('active');
+            }
+        
+            prevStoryBtn.addEventListener('click', () => {
+                currentStoryIndex = (currentStoryIndex - 1 + storyCards.length) % storyCards.length;
+                showStoryCard(currentStoryIndex);
+            });
+        
+            nextStoryBtn.addEventListener('click', () => {
+                currentStoryIndex = (currentStoryIndex + 1) % storyCards.length;
+                showStoryCard(currentStoryIndex);
+            });
+        
+            // Initialize carousels
+            showGoalSlide(0);
+            showStoryCard(0);
+        
+            // Counter animation for impact statistics
+            function animateCounter(element, target, duration) {
+                let start = 0;
+                const increment = target / (duration / 16);
+                const timer = setInterval(() => {
+                    start += increment;
+                    element.textContent = Math.floor(start);
+                    if (start >= target) {
+                        clearInterval(timer);
+                        element.textContent = target;
+                    }
+                }, 16);
+            }
+        
+            // Animate counters when in view
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+        
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.querySelectorAll('.counter').forEach(counter => {
+                            const target = parseInt(counter.getAttribute('data-target'));
+                            animateCounter(counter, target, 2000);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+        
+            const impactSection = document.querySelector('#impact');
+            if (impactSection) {
+                observer.observe(impactSection);
+            }
+        
+            // Add a back-to-top button
+            const backToTopButton = document.createElement('button');
+            backToTopButton.innerHTML = '&uarr;';
+            backToTopButton.className = 'back-to-top';
+            document.body.appendChild(backToTopButton);
+        
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+        
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        
+            // Add a simple form validation
+            const contactForm = document.querySelector('#contact form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name = contactForm.querySelector('input[type="text"]').value;
+                    const email = contactForm.querySelector('input[type="email"]').value;
+                    const message = contactForm.querySelector('textarea').value;
+        
+                    if (name && email && message) {
+                        alert('Thank you for your message! We will get back to you soon.');
+                        contactForm.reset();
+                    } else {
+                        alert('Please fill in all fields.');
+                    }
+                });
+            }
+        
+            // Program cards hover effect
+            const programCards = document.querySelectorAll('.program-card');
+        
+            programCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)';
+                    card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
+                });
+        
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
