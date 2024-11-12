@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Afro-Unity Sports Foundation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel = "stylesheet" href="css/donate.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="ASF-LOGO.png" alt="Afro-Unity Sports Foundation" height="100" width="120">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"></li>
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="programs.html">Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="volunteer.html">Get Involved</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="donate.html">Donate</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="donate-hero">
+            <div class="container text-center text-dark">
+                <h1 data-aos="fade-up">Make a Difference Today</h1>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-light">Your donation can change lives and empower communities through sports</p>
+            </div>
+        </section>
+
+        <section class="py-5 donation-section">
+            <div class="container">
+                <h2 class="text-center mb-5" data-aos="fade-up">Choose Your Donation Option</h2>
+                
+                <div class="donation-tabs" data-aos="fade-up">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-target="one-time">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            One-Time Donation
+                        </button>
+                        <button class="tab-btn" data-target="monthly">
+                            <i class="fas fa-sync-alt"></i>
+                            Monthly Giving
+                        </button>
+                        <button class="tab-btn" data-target="corporate">
+                            <i class="fas fa-gift"></i>
+                            Corporate Sponsorship
+                        </button>
+                    </div>
+        
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="one-time">
+                            <h3>Make a One-Time Donation</h3>
+                            <p>Support our immediate initiatives with a single contribution.</p>
+                            <div class="amount-options">
+                                <button class="amount-btn">$25</button>
+                                <button class="amount-btn">$50</button>
+                                <button class="amount-btn">$100</button>
+                                <button class="amount-btn">$200</button>
+                                <input type="number" placeholder="Custom Amt" class="custom-amount">
+                            </div>
+                            <button class="donate-btn" id="one-time-donate">Proceed to Donate</button>
+                        </div>
+        
+                        <div class="tab-pane" id="monthly">
+                            <h3>Become a Monthly Donor</h3>
+                            <p>Join our community of regular supporters making lasting impact.</p>
+                            <div class="amount-options">
+                                <button class="amount-btn">$10/mo</button>
+                                <button class="amount-btn">$25/mo</button>
+                                <button class="amount-btn">$50/mo</button>
+                                <input type="number" placeholder="Add Custom" class="custom-amount">
+                            </div>
+                            <button class="donate-btn" id="monthly-donate">Start Monthly Giving</button>
+                        </div>
+        
+                        <div class="tab-pane" id="corporate">
+                            <h3 class="text-center mb-4">Corporate Partnership Opportunities</h3>
+                            <p class="text-center mb-5">Create meaningful impact through our tiered sponsorship programs</p>
+                            
+                            <div class="sponsorship-tiers">
+                                <div class="tier-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="tier-header silver">
+                                        <div class="tier-icon">
+                                            <i class="fas fa-award"></i>
+                                        </div>
+                                        <h4>Silver Partner</h4>
+                                        <div class="tier-price">$5,000/year</div>
+                                    </div>
+                                    <div class="tier-benefits">
+                                        <ul>
+                                            <li><i class="fas fa-check"></i> Logo on Website</li>
+                                            <li><i class="fas fa-check"></i> Social Media Recognition</li>
+                                            <li><i class="fas fa-check"></i> Event Invitations</li>
+                                            <li><i class="fas fa-check"></i> Quarterly Impact Reports</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                        
+                                <div class="tier-card featured" data-aos="fade-up">
+                                    <div class="tier-header gold">
+                                        <div class="tier-icon">
+                                            <i class="fas fa-crown"></i>
+                                        </div>
+                                        <h4>Gold Partner</h4>
+                                        <div class="tier-price">$10,000/year</div>
+                                    </div>
+                                    <div class="tier-benefits">
+                                        <ul>
+                                            <li><i class="fas fa-check"></i> All Silver Benefits</li>
+                                            <li><i class="fas fa-check"></i> Premium Logo Placement</li>
+                                            <li><i class="fas fa-check"></i> Speaking Opportunities</li>
+                                            <li><i class="fas fa-check"></i> Program Naming Rights</li>
+                                            <li><i class="fas fa-check"></i> VIP Event Access</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                        
+                                <div class="tier-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="tier-header platinum">
+                                        <div class="tier-icon">
+                                            <i class="fas fa-gem"></i>
+                                        </div>
+                                        <h4>Platinum Partner</h4>
+                                        <div class="tier-price">$20,000/year</div>
+                                    </div>
+                                    <div class="tier-benefits">
+                                        <ul>
+                                            <li><i class="fas fa-check"></i> All Gold Benefits</li>
+                                            <li><i class="fas fa-check"></i> Custom Program Creation</li>
+                                            <li><i class="fas fa-check"></i> Board Membership</li>
+                                            <li><i class="fas fa-check"></i> International Recognition</li>
+                                            <li><i class="fas fa-check"></i> Legacy Impact Project</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-5">
+                                <button class="contact-btn text dark">Partnership Details</button>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="impact-section py-5">
+            <div class="container">
+                <h2 class="text-center mb-5" data-aos="fade-up">Our Impact in Numbers</h2>
+                <div class="impact-grid">
+                    <div class="impact-card" data-aos="zoom-in">
+                        <div class="impact-icon-wrapper">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="impact-counter">5,000+</div>
+                        <h3>Youth Empowered</h3>
+                        <p>Young lives transformed through sports and mentorship programs</p>
+                    </div>
+        
+                    <div class="impact-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="impact-icon-wrapper">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="impact-counter">20+</div>
+                        <h3>Communities Served</h3>
+                        <p>Local communities strengthened through our initiatives</p>
+                    </div>
+        
+                    <div class="impact-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="impact-icon-wrapper">
+                            <i class="fas fa-baseball-ball"></i>
+                        </div>
+                        <div class="impact-counter">15+</div>
+                        <h3>Sports Programs</h3>
+                        <p>Diverse sports programs fostering talent and teamwork</p>
+                    </div>
+        
+                    <div class="impact-card" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="impact-icon-wrapper">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="impact-counter">100+</div>
+                        <h3>Active Volunteers</h3>
+                        <p>Dedicated individuals making a difference every day</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="funds-allocation-section py-5">
+            <div class="container">
+                <h2 class="text-center mb-5" data-aos="fade-up">Your Impact in Action</h2>
+                
+                <div class="funds-content">
+                    <div class="row g-4">
+                        <div class="col-lg-6" data-aos="fade-right">
+                            <div class="allocation-chart">
+                                <div class="chart-container">
+                                    <canvas id="allocationChart"></canvas>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="color-dot programs"></span>
+                                        <span>70% Program Implementation</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="color-dot admin"></span>
+                                        <span>15% Administrative Costs</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="color-dot outreach"></span>
+                                        <span>10% Community Outreach</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="color-dot development"></span>
+                                        <span>5% Future Development</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="col-lg-6" data-aos="fade-left">
+                            <div class="impact-details">
+                                <div class="impact-card2">
+                                    <div class="impact-icon">
+                                        <i class="fas fa-running"></i>
+                                    </div>
+                                    <div class="impact-text">
+                                        <h4>Program Implementation</h4>
+                                        <p>Direct funding for sports programs, equipment, training facilities, and coaching staff.</p>
+                                    </div>
+                                </div>
+        
+                                <div class="impact-card2">
+                                    <div class="impact-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="impact-text">
+                                        <h4>Administrative Efficiency</h4>
+                                        <p>Essential operations, staff salaries, and program coordination to ensure maximum impact.</p>
+                                    </div>
+                                </div>
+        
+                                <div class="impact-card2">
+                                    <div class="impact-icon">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <div class="impact-text">
+                                        <h4>Community Engagement</h4>
+                                        <p>Local outreach, community events, and partnership development initiatives.</p>
+                                    </div>
+                                </div>
+        
+                                <div class="impact-card2">
+                                    <div class="impact-icon">
+                                        <i class="fas fa-seedling"></i>
+                                    </div>
+                                    <div class="impact-text">
+                                        <h4>Future Growth</h4>
+                                        <p>Investment in program expansion and sustainable development strategies.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="transparency-pledge mt-5" data-aos="fade-up">
+                        <h3>Our Commitment to Transparency</h3>
+                        <p>We believe in complete transparency with our donors. Regular updates and detailed financial reports are available to all our supporters, demonstrating the direct impact of your contributions.</p>
+                        <a href="#" class="btn btn-outline-info">View Annual Report</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="https://x.com/AfroUnitysf?t=f5M5xLD4jdlM6cVekywIpQ&s=09"><img src="icons/twitter.png" alt="Twitter" class="social-media-icon"></a>
+                        <a href="https://www.instagram.com/afrounitysportsfoundation?utm_source=qr&igsh=MWU0cm42cGNuNnRsZQ=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/afro-unity-sports-foundation/ "><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>PO Box: 129281, Kololo II, Kampala, Uganda</p>
+                    <p>Phone: +256 770 943848</p>
+                    <p>Email: info@afro-unitysf.org</p>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 Afro-Unity Sports Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize all required functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize donation flow management
+    const donationFlow = {
+        selectedAmount: null,
+        
+        init() {
+            this.setupDonationContainer();
+            this.setupEventListeners();
+            this.initializeChart();
+        },
+
+        setupDonationContainer() {
+            const donationContainer = document.querySelector('.donation-tabs');
+            const dynamicContent = document.createElement('div');
+            dynamicContent.className = 'dynamic-content';
+            donationContainer.appendChild(dynamicContent);
+        },
+
+        setupEventListeners() {
+            // Tab switching
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => this.handleTabSwitch(btn));
+            });
+
+            // Amount selection
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+                btn.addEventListener('click', () => this.handleAmountSelection(btn));
+            });
+
+            // Custom amount input
+            document.querySelectorAll('.custom-amount').forEach(input => {
+                input.addEventListener('input', (e) => this.handleCustomAmount(e.target.value));
+            });
+
+            // Donate button clicks
+            document.querySelectorAll('.donate-btn').forEach(btn => {
+                btn.addEventListener('click', () => this.handleDonateClick());
+            });
+
+            // Payment method selection
+            document.querySelectorAll('.payment-method-btn').forEach(btn => {
+                btn.addEventListener('click', () => this.handlePaymentMethodSelection(btn));
+            });
+        },
+
+        handleTabSwitch(button) {
+            const targetId = button.dataset.target;
+            
+            // Update button states
+            document.querySelectorAll('.tab-btn').forEach(btn => 
+                btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Update content visibility
+            document.querySelectorAll('.tab-pane').forEach(pane => 
+                pane.classList.remove('active'));
+            document.getElementById(targetId).classList.add('active');
+
+            // Clear any selected amounts
+            document.querySelectorAll('.amount-btn').forEach(btn => 
+            btn.classList.remove('selected'));
+
+            // Clear custom amount inputs
+            document.querySelectorAll('.custom-amount').forEach(input => 
+                input.value = '');
+
+            // Reset selected amount
+            this.selectedAmount = null;
+
+            // Clear payment form if it exists
+            const dynamicContent = document.querySelector('.dynamic-content');
+            if (dynamicContent) {
+                dynamicContent.innerHTML = '';
+                dynamicContent.style.display = 'none';
+            }
+        },
+
+        handleAmountSelection(button) {
+            document.querySelectorAll('.amount-btn').forEach(btn => 
+                btn.classList.remove('selected'));
+            button.classList.add('selected');
+            this.selectedAmount = button.textContent.replace('/mo', '');
+            
+            // Update amount in payment form if it exists
+            this.updatePaymentFormAmount();
+
+            // Clear custom amount
+            const customInput = button.parentElement.querySelector('.custom-amount');
+            if (customInput) customInput.value = '';
+        },
+
+        handleCustomAmount(value) {
+            this.selectedAmount = value ? `$${value}` : null;
+            // Clear other selections
+            document.querySelectorAll('.amount-btn').forEach(btn => 
+                btn.classList.remove('selected'));
+
+                // Update amount in payment form if it exists
+                this.updatePaymentFormAmount();
+        },
+
+        updatePaymentFormAmount() {
+            const paymentForm = document.querySelector('.payment-modal');
+            if (paymentForm) {
+                const amountDisplay = paymentForm.querySelector('h4');
+                if (amountDisplay) {
+                    const isMonthly = document.querySelector('.tab-btn[data-target="monthly"]').classList.contains('active');
+                    amountDisplay.textContent = `Selected Amount: ${this.selectedAmount}${isMonthly ? '/month' : ''}`;
+                }
+            }
+        },
+
+        handleDonateClick() {
+            if (!this.selectedAmount) {
+                alert('Please select a donation amount');
+                return;
+            }
+            
+            const dynamicContent = document.querySelector('.dynamic-content');
+            dynamicContent.innerHTML = this.generatePaymentFormHTML();
+            dynamicContent.style.display = 'block'; // Make sure it's visible
+            dynamicContent.scrollIntoView({ behavior: 'smooth' });
+        },
+
+        handlePaymentMethodSelection(button) {
+            document.querySelectorAll('.payment-method-btn').forEach(btn => 
+                btn.classList.remove('selected'));
+            button.classList.add('selected');
+        },
+
+        showPaymentForm(isMonthly) {
+            const dynamicContent = document.querySelector('.dynamic-content');
+            dynamicContent.innerHTML = this.generatePaymentFormHTML(isMonthly);
+            dynamicContent.scrollIntoView({ behavior: 'smooth' });
+        },
+
+        initializeChart() {
+            const ctx = document.getElementById('allocationChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Program Implementation', 'Administrative Costs', 
+                            'Community Outreach', 'Future Development'],
+                    datasets: [{
+                        data: [70, 15, 10, 5],
+                        backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        },
+
+        generatePaymentFormHTML(isMonthly) {
+            return `
+                <div class="payment-modal">
+                    <form class="payment-form">
+                        <div class="personal-info">
+                            <h4 id="selected-amount-display">Selected Amount: ${this.selectedAmount}${isMonthly ? '/month' : ''}</h4>
+                            <div class="input-container">
+                                <label class="input-label">Full Name</label>
+                                <input class="input-field" type="text" required>
+                            </div>
+                            <div class="input-container">
+                                <label class="input-label">Email Address</label>
+                                <input class="input-field" type="email" required>
+                            </div>
+                            <div class="input-container">
+                                <label class="input-label">Phone Number</label>
+                                <input class="input-field" type="tel" required>
+                            </div>
+                        </div>
+                        
+                        <div class="payment--options">
+                        <button name="paypal" type="button">
+                        <img src="icons/paypal.png" alt="PayPal" class="payment-icon">
+                        </button>
+                        <button name="apple-pay" type="button">
+                        <img src="icons/apple-pay.png" alt="Apple Pay" class="payment-icon">
+                        </button>
+                        <button name="google-pay" type="button">
+                            <img src="icons/google-pay.png" alt="Google Pay" class="payment-icon">
+                        </button>
+                        <button name="mobile-money" type="button">
+                            <img src="icons/mobile-transfer.png" alt="Mobile Money" class="payment-icon">
+                        </button>
+                    </div>
+                    <div class="separator">
+                        <hr class="line">
+                        <p>or pay using credit card</p>
+                        <hr class="line">
+                    </div>
+                    <div class="credit-card-info--form">
+                        <div class="input_container">
+                        <label for="password_field" class="input_label">Card holder full name</label>
+                        <input id="password_field" class="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name">
+                        </div>
+                        <div class="input_container">
+                        <label for="password_field" class="input_label">Card Number</label>
+                        <input id="password_field" class="input_field" type="number" name="input-name" title="Inpit title" placeholder="0000 0000 0000 0000">
+                        </div>
+                        <div class="input_container">
+                        <label for="password_field" class="input_label">Expiry Date / CVV</label>
+                        <div class="split">
+                        <input id="password_field" class="input_field" type="text" name="input-name" title="Expiry Date" placeholder="01/23">
+                        <input id="password_field" class="input_field" type="number" name="cvv" title="CVV" placeholder="CVV">
+                        </div>
+                        </div>
+                    </div>                  
+                        <button class="checkout-btn" type="submit">Complete Donation</button>
+                    </form>
+                </div>
+            `;
+        }        
+    };
+
+    // Initialize the donation flow
+    donationFlow.init();
+
+    // Initialize AOS animations
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const contactBtn = document.querySelector('.contact-btn');
+    const corporateTab = document.querySelector('#corporate');
+    
+    contactBtn.addEventListener('click', function() {
+        // Check if form already exists
+        const existingForm = corporateTab.querySelector('.partnership-form-modal');
+        if (!existingForm) {
+            // Create and insert the form
+            const formHTML = `
+                <!-- Partnership form HTML goes here -->
+                <div class="partnership-form-modal">
+                    <form class="partnership-inquiry-form">
+            <h3>Partnership Inquiry Form</h3>
+            
+            <!-- Company Information -->
+            <div class="form-section">
+                <h4>Company Information</h4>
+                <div class="form-group">
+                    <label for="company-name">Company Name*</label>
+                    <input type="text" id="company-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="industry">Industry*</label>
+                    <input type="text" id="industry" required>
+                </div>
+                <div class="form-group">
+                    <label for="company-size">Company Size</label>
+                    <select id="company-size">
+                        <option value="">Select company size</option>
+                        <option value="1-50">1-50 employees</option>
+                        <option value="51-200">51-200 employees</option>
+                        <option value="201-500">201-500 employees</option>
+                        <option value="501+">501+ employees</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Contact Information -->
+            <div class="form-section">
+                <h4>Contact Information</h4>
+                <div class="form-group">
+                    <label for="contact-name">Contact Person's Name*</label>
+                    <input type="text" id="contact-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="job-title">Job Title*</label>
+                    <input type="text" id="job-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" required>
+                </div>
+            </div>
+    
+            <!-- Partnership Details -->
+            <div class="form-section">
+                <h4>Partnership Interest</h4>
+                <div class="form-group">
+                    <label for="partnership-tier">Interested Partnership Tier*</label>
+                    <select id="partnership-tier" required>
+                        <option value="">Select partnership tier</option>
+                        <option value="silver">Silver Partner ($5,000/year)</option>
+                        <option value="gold">Gold Partner ($10,000/year)</option>
+                        <option value="platinum">Platinum Partner ($20,000/year)</option>
+                        <option value="custom">Custom Partnership</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="goals">Partnership Goals and Objectives*</label>
+                    <textarea id="goals" rows="4" required placeholder="Please describe what you hope to achieve through this partnership"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="timeline">Preferred Partnership Timeline</label>
+                    <select id="timeline">
+                        <option value="">Select timeline</option>
+                        <option value="immediate">Immediate (Within 1 month)</option>
+                        <option value="quarter">Next Quarter</option>
+                        <option value="6months">Within 6 months</option>
+                        <option value="year">Next Year</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Additional Information -->
+            <div class="form-section">
+                <h4>Additional Information</h4>
+                <div class="form-group">
+                    <label for="previous-sponsorship">Previous Sponsorship Experience</label>
+                    <textarea id="previous-sponsorship" rows="3" placeholder="Please describe any previous sports sponsorship or community partnership experience"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="questions">Questions or Additional Comments</label>
+                    <textarea id="questions" rows="3"></textarea>
+                </div>
+            </div>
+    
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">Submit Partnership Inquiry</button>
+            </div>
+        </form> 
+                </div>
+            `;
+            
+            corporateTab.insertAdjacentHTML('beforeend', formHTML);
+            
+            // Smooth scroll to the form
+            const newForm = corporateTab.querySelector('.partnership-form-modal');
+            newForm.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const annualReportBtn = document.querySelector('.btn-outline-primary');
+    
+    annualReportBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Replace 'path/to/annual-report.pdf' with your actual PDF file path
+        const reportUrl = 'reports/Annual Report 2023.pdf';
+        
+        // Create a temporary link element
+        const link = document.createElement('a');
+        link.href = reportUrl;
+        link.download = 'ASF-Annual-Report-2023.pdf'; // The name the file will download as
+        
+        // Append to document, click, and remove
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+});
+
+
+  
+    </script>
+</body>
+</html>
